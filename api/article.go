@@ -1,6 +1,11 @@
 package api
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+
+	"github.com/fatih/color"
+)
 
 type Article struct {
 	Source struct {
@@ -17,8 +22,16 @@ type Article struct {
 }
 
 func (a *Article) Display() {
-	fmt.Printf("\n\nTitle - %v", a.Title)
-	fmt.Printf("\nAuthor - %v", a.Author)
-	fmt.Printf("\nDescription - %v", a.Description)
-	fmt.Printf("\nURL - %v", a.URL)
+	// Format the output with colors and indentation
+	fmt.Printf("%s\n\n", color.GreenString(a.Title))
+	fmt.Printf("%s %s\n\n", color.BlueString("Author:"), a.Author)
+	fmt.Printf("%s %s\n\n", color.BlueString("Source:"), a.Source.Name)
+	fmt.Printf("%s %s\n\n", color.RedString("URL:"), a.URL)
+	fmt.Printf("%s\n%s\n\n", color.WhiteString("Content:"), indent(a.Content, 2))
+}
+
+// Indent a string by n spaces
+func indent(s string, n int) string {
+	indentation := strings.Repeat(" ", n)
+	return indentation + strings.ReplaceAll(s, "\n", "\n"+indentation)
 }
