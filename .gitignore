@@ -1,0 +1,21 @@
+response-example.json
+
+# Compiled output
+/bin/
+/build/
+
+# Dependencies
+/vendor/
+/go.sum
+
+# IDE/editor files
+.vscode/
+.idea/
+*.iml
+
+# Environment variables
+.env
+
+# Test output
+/test-output/
+
