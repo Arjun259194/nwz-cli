@@ -56,6 +56,6 @@ func handler(cmd *cobra.Command, args []string) {
 var fetchCmd = &cobra.Command{
 	Use:   "fetch",
 	Short: "Fetch news with different methods",
-	Long:  `Uses different flags and fetch and display new user want`,
+	Long:  `It let's you fetch news for a country or based on a keyword`,
 	Run:   handler,
 }
